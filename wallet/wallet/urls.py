@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from walletstatus.views import logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('walletstatus/', include('walletstatus.urls')),
+    path('accounts/logout/', logout_view, name='logout'),  # Custom logout view (GET allowed)
+    path('accounts/', include('django.contrib.auth.urls')),  # Login/logout URLs
+    path('', include('walletstatus.urls')),  # Main app URLs
 ]
+
+# Serve media files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
