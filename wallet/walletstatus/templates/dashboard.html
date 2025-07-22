@@ -309,7 +309,7 @@
                                     <span>${{ goal.target_amount|floatformat:2 }}</span>
                                 </div>
                                 <div class="progress mb-2" style="height: 8px;">
-                                    <div class="progress-bar bg-warning" style="width: {{ goal.get_progress_percentage }}%"></div>
+                                    <div class="progress-bar bg-warning" style="width: {{ goal.get_progress_percentage|default:0 }}%"></div>
                                 </div>
                                 <small class="text-muted">
                                     {{ goal.get_progress_percentage }}% complete • Target: {{ goal.target_date }}
