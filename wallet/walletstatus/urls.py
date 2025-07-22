@@ -32,4 +32,6 @@ urlpatterns = [
     
     # Analytics and reports
     path('analytics/', views.analytics, name='analytics'),
+
+    path('logout/', views.logged_out, name='logout'),  # Logout view
 ]

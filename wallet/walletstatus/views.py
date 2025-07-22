@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
 from django.contrib.auth import login, authenticate, logout
-=======
 from django.contrib.auth import login, authenticate
->>>>>>> 60233cade0425eb0d1b2b18f2d82c7f437f870f1
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.http import JsonResponse
@@ -500,13 +497,10 @@ def fetch_remote_jobs():
         
         return True
     except Exception as e:
-        print(f"Error fetching jobs: {e}")
-<<<<<<< HEAD
-        return False
+        print(f"Error fetching jobs: {e}")    
 
-def logout_view(request):
+def logged_out(request):
+    """Handle user logout"""
     logout(request)
-    return render(request, 'registration/logged_out.html')
-=======
-        return False
->>>>>>> 60233cade0425eb0d1b2b18f2d82c7f437f870f1
+    messages.success(request, 'You have been logged out successfully.')
+    return redirect('login')
