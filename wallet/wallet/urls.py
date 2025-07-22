@@ -18,17 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-<<<<<<< HEAD
 from walletstatus.views import logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/logout/', logout_view, name='logout'),  # Custom logout view (GET allowed)
-=======
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
->>>>>>> 60233cade0425eb0d1b2b18f2d82c7f437f870f1
     path('accounts/', include('django.contrib.auth.urls')),  # Login/logout URLs
     path('', include('walletstatus.urls')),  # Main app URLs
 ]
